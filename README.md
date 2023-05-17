@@ -1,3 +1,3 @@
-```
-Native lib for [termio](https://github.com/toocol/termio).
-```
+Native lib for termio.  
+  
+See https://github.com/toocol/termio.
