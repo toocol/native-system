@@ -21,9 +21,11 @@ link_directories("C:/Windows/System32/lib")
 
 set(HEADERS 
 	src/native_system.h
+    src/fontconfig.h
 )
 set(SOURCES
 	src/native_system.cpp
+    src/fontconfig.cpp
 )
 
 add_library(mman STATIC IMPORTED)
