@@ -14,10 +14,21 @@ set(CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS} -O3  -Wall")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O3  -Wall")
 
 include_directories("src/")
+
+if(WIN32) 
 include_directories("C:/Windows/System32/include")
 include_directories("C:/Windows/System32/include/sys")
 
 link_directories("C:/Windows/System32/lib")
+
+endif()
+if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
+include_directories("/Users/Shared/libs/include/")
+
+link_directories("/Users/Shared/libs/lib")
+endif()
+
+
 
 set(HEADERS 
 	src/native_system.h
@@ -40,6 +51,8 @@ target_link_libraries(native-system mman utf8proc)
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET native-system PROPERTY CXX_STANDARD 20)
+endif()
+if(WIN32) 
   set_property(TARGET native-system PROPERTY COMPILE_FLAGS "/EHsc")
 endif()
 

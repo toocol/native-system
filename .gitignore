@@ -56,3 +56,5 @@ cmake-build-debug/*
 **/include
 **/lib
 **/bin
+
+/.vscode

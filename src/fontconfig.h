@@ -1,8 +1,13 @@
 #ifndef _NATIVE_FONTCONFIG_H_
 #define _NATIVE_FONTCONFIG_H_
 
+#ifdef __APPLE__
+#define REXPORT __attribute__((visibility("default")))
+#define RCALL __attribute__((cdecl))
+#else
 #define REXPORT __declspec(dllexport)
 #define RCALL __stdcall
+#endif
 
 typedef const char* cstring;
 
@@ -10,7 +15,7 @@ typedef const char* cstring;
 #include <Windows.h>
 #include <wingdi.h>
 #else
-#include <fontconfig/fontconfig.h>
+// #include <fontconfig/fontconfig.h>
 #endif
 
 extern "C" {
