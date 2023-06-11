@@ -25,9 +25,5 @@ REXPORT void* RCALL mmap_ffi(void* addr, size_t len, int prot, int flags,
 REXPORT int RCALL munmap_ffi(void* addr, size_t len);
 
 REXPORT int RCALL chsize_ffi(int file_handle, int32_t size);
-
-REXPORT int RCALL wcwidth_ffi(wchar_t ucs);
-
-REXPORT int RCALL string_width_ffi(const wchar_t* wstr);
 }
 #endif
