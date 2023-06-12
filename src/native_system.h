@@ -11,7 +11,8 @@
 
 extern "C" {
 #ifdef _MSVC_LANG
-#include <unistd.h>
+#include <io.h>
+#include <process.h>
 #include <windows.h>
 #else
 #include <sys/param.h>
