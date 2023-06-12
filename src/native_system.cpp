@@ -10,5 +10,9 @@ REXPORT int RCALL munmap_ffi(void* addr, size_t len) {
 }
 
 REXPORT int RCALL chsize_ffi(int file_handle, int32_t size) {
+#ifdef _MSVC_LANG
   return _chsize(file_handle, size);
+#else
+  return ftruncate(file_handle, size);
+#endif
 }

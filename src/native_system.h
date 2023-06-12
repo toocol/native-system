@@ -14,6 +14,9 @@ extern "C" {
 #include <io.h>
 #include <process.h>
 #include <windows.h>
+#else
+#include <sys/param.h>
+#include <unistd.h>
 #endif
 #include <sys/mman.h>
 
