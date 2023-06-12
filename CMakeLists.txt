@@ -20,8 +20,8 @@ include_directories("C:/Windows/System32/include")
 include_directories("C:/Windows/System32/include/sys")
 
 link_directories("C:/Windows/System32/lib")
-
 endif()
+
 if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
 include_directories("/Users/Shared/libs/include/")
 
@@ -37,13 +37,14 @@ set(SOURCES
     src/fontconfig.cpp
 )
 
-add_library(mman STATIC IMPORTED)
-set_property(TARGET mman PROPERTY IMPORTED_LOCATION C:/Windows/System32/lib/sys/mman.lib)
 add_library(native-system STATIC
 	${SOURCES}
 )
-
-target_link_libraries(native-system mman)
+if(WIN32)
+add_library(mman STATIC IMPORTED)
+set_property(TARGET mman PROPERTY IMPORTED_LOCATION C:/Windows/System32/lib/sys/mman.lib)
+target_link_libraries(native-system PUBLIC mman)
+endif()
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET native-system PROPERTY CXX_STANDARD 20)

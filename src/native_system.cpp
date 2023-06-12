@@ -1,5 +1,4 @@
 #include "native_system.h"
-#include <string>
 
 REXPORT void* RCALL mmap_ffi(void* addr, size_t len, int prot, int flags,
                              int fildes, int64_t offset_type) {

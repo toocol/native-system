@@ -9,6 +9,7 @@
 #define RCALL __stdcall
 #endif
 
+extern "C" {
 #ifdef _MSVC_LANG
 #include <unistd.h>
 #include <windows.h>
@@ -18,7 +19,6 @@
 #endif
 #include <sys/mman.h>
 
-extern "C" {
 REXPORT void* RCALL mmap_ffi(void* addr, size_t len, int prot, int flags,
                              int fildes, int64_t offset_type);
 
